@@ -8,7 +8,7 @@ const Header = () => {
   const [wishlistCount] = useState(1);
 
   return (
-    <div className="header flex flex-col py-[20px]">
+    <div className="header flex flex-col pt-[20px] pb-[5px]">
       {/* Top Section */}
       <div className="up flex justify-around w-100 items-center">
         <div className="search flex w-[507px]">
@@ -20,7 +20,7 @@ const Header = () => {
           <img
             src={search}
             alt="Search"
-            className=" cursor-pointer bg-[#fcb941] p-3 w-[64px] rounded-md h-[52px]"
+            className=" cursor-pointer bg-[#fcb941] p-3 w-[64px] h-[52px]"
 
           />
         </div>
@@ -38,10 +38,14 @@ const Header = () => {
             </span>
           </div>
         </div>
+
+        <div className="registerBtn">
+          <button className="border p-[5px] rounded-md bg-[#fcb941] cursor-pointer">Create Your Account</button>
+        </div>
       </div>
 
       {/* Dropdown Section */}
-      <div className="down my-7 border">
+      <div className="down mt-7 border">
         <div className="nav flex justify-around items-center h-[71px]">
           {/* Logo Section */}
           <div className="logo_Name cursor-pointer w-[30vw] flex justify-center">

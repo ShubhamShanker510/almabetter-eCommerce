@@ -6,6 +6,7 @@ import SignUp from './pages/sign-up/SignUp'
 import Login from './pages/login/Login'
 import Header from './components/header/Header'
 import Hero from './components/hero/Hero'
+import Card from './components/cards/Card'
 
 function App() {
 
@@ -13,8 +14,9 @@ function App() {
     <>
     {/* <SignUp/> */}
     {/* <Login/> */}
-    {/* <Header/> */}
+    <Header/>
     <Hero/>
+    <Card/>
     </>
   )
 }
