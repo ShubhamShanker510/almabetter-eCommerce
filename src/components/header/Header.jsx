@@ -8,9 +8,9 @@ const Header = () => {
   const [wishlistCount] = useState(1);
 
   return (
-    <div className="header flex flex-col pt-[20px] pb-[5px]">
+    <div className="header flex flex-col">
       {/* Top Section */}
-      <div className="up flex justify-around w-100 items-center">
+      <div className="up flex justify-around items-center">
         <div className="search flex w-[507px]">
           <input
             type="text"
@@ -24,6 +24,7 @@ const Header = () => {
 
           />
         </div>
+        <div className="flex justify-around items-center w-[30vw]">
         <div className="add-item flex">
           <div className="wishlist cursor-pointer relative mx-2">
             <img src={wishlist} alt="Wishlist Icon" width={40} />
@@ -41,6 +42,7 @@ const Header = () => {
 
         <div className="registerBtn">
           <button className="border p-[5px] rounded-md bg-[#fcb941] cursor-pointer">Create Your Account</button>
+        </div>
         </div>
       </div>
 

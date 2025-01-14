@@ -1,41 +1,62 @@
-import React from 'react'
-import { Card } from "flowbite-react";
-import watch from '../../assets/images/watch.jpg'
+import React, { useState } from "react";
+import watch from "../../assets/images/watch.jpg";
 
-const card = () => {
-  return (
-       <Card
-      className="max-w-sm my-5 mx-5 w-[350px]"
-      imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-      imgSrc={watch}
+const Card = () => {
+  const [hoverIndex, setHoverIndex] = useState(-1);
+
+  const handleMouseEnter = (index) => {
+    setHoverIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoverIndex(-1);
+  };
+
+  const renderCard = (index) => (
+    <div
+      key={index}
+      className="card flex flex-col m-5 border rounded-md cursor-pointer w-[300px]"
+      onMouseEnter={() => handleMouseEnter(index)}
+      onMouseLeave={handleMouseLeave}
     >
-      <a href="#">
-        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-          Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
-        </h5>
-      </a>
-      <div className="mb-5 mt-2.5 flex items-center">
-        <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
-          5.0
-        </span>
+      <div className="top">
+        <img src={watch} alt="Product" />
       </div>
-      <div className="flex items-center justify-evenly">
-        <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
-        <a
-          href="#"
-          className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-        >
-          Read more
-        </a>
-        <a
-          href="#"
-          className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-        >
-          Add to cart
-        </a>
+      <div className="bottom p-5">
+        <div className="category text-gray-500">
+          <p>Category</p>
+        </div>
+        <div className="title font-semibold">
+          <p>Product title</p>
+        </div>
+        <div className="price text-red-600 mb-5">
+          <p>Rs:500</p>
+        </div>
+        {hoverIndex === index && ( // Conditionally render buttons on hover
+          <div className="btn flex justify-between items-center">
+            <div className="read_more">
+              <button className="bg-red-600 p-2 text-white rounded-md cursor-pointer mr-3">
+                Read More
+              </button>
+            </div>
+            <div className="cart">
+              <button className="bg-red-600 p-2 text-white rounded-md cursor-pointer">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        )}
       </div>
-    </Card>
-  )
-}
+    </div>
+  );
 
-export default card
+  return (
+    <div className="grid grid-cols-4 w-[100vw]">
+      {Array(6) // Render 6 cards dynamically
+        .fill(0)
+        .map((_, index) => renderCard(index))}
+    </div>
+  );
+};
+
+export default Card;

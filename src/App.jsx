@@ -7,6 +7,7 @@ import Login from './pages/login/Login'
 import Header from './components/header/Header'
 import Hero from './components/hero/Hero'
 import Card from './components/cards/Card'
+import Footer from './components/footer/Footer'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
     <Header/>
     <Hero/>
     <Card/>
+    <Footer/>
     </>
   )
 }

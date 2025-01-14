@@ -8,4 +8,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: auto;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
 }
